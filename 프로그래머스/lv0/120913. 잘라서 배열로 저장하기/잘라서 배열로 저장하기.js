@@ -1,6 +1,4 @@
 function solution(my_str, n) {
-    const answer = []
-    for(let i = 0; i < my_str.length; i += n){
-        answer.push(my_str.slice(i,i+n))
-    }return answer
+  const reg = new RegExp(`\\w{1,${n}}`, 'g');
+  return my_str.match(reg);
 }
