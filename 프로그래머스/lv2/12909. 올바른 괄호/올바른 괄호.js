@@ -1,16 +1,8 @@
 function solution(s){
-    let cnt = 0;
-    if(s[0] === ')' || s.length===1 ){return false}
-    for(let x of s){
-        if( x === '('){
-           cnt++
-        }else {
-            if(cnt < 1){
-                return false
-            }
-            cnt--
-        }
-    }
-    
- return cnt === 0 ? true : false
+    var answer = true;
+
+    // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+    console.log('Hello Javascript')
+
+    return answer;
 }
