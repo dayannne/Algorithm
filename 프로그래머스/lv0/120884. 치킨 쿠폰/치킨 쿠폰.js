@@ -1,10 +1,7 @@
 function solution(chicken) {
-    let answer = 0;
-    
-    while(chicken * 0.1 >= 1) {
-        answer += Math.round(chicken / 10);
-        chicken = Math.floor(chicken / 10);
+    if (chicken * 0.1 < 1) {
+        return 0;
     }
     
-    return answer;
+    return Math.round(chicken / 10) + solution(Math.floor(chicken / 10));
 }
