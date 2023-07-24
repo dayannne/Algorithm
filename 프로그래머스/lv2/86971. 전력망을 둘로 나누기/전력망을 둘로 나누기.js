@@ -7,11 +7,11 @@ function solution(n, wires) {
     
     for (let i = 0 ; i < wires.length ; i++){
         const copyWires = [...wires]; // wires 복제하기
-    const [cutWire] = copyWires.splice(i, 1); // 한 개의 wire를 제거
+        const [cutWire] = copyWires.splice(i, 1); // 한 개의 wire를 제거
         const A = new Set([cutWire[0]]); // 트리 A
         const B = new Set([cutWire[1]]); // 트리 B
         
-        while (copyWires.length > 0) {
+       while (copyWires.length > 0) {
             let isConnected = false;
             for (let j = 0; j < copyWires.length; j++) {
                 const currWire = copyWires[j];
@@ -32,8 +32,7 @@ function solution(n, wires) {
 
             if (!isConnected) break;
         }
-        
-console.log(A,B)
+
         const diff = Math.abs(A.size - B.size) 
          if(diff < answer){
           answer = diff
