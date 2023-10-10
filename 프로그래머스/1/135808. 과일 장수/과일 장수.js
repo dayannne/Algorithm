@@ -18,6 +18,8 @@ function solution(k, m, score) {
         }
         return result
     }
+    // 위 함수를 아래와 같이 단축시킬수도 있겠다.
+    // const sortedScore = score.slice().sort((a, b) => a - b).slice(score.length % m);
     
     const answer = chunk(sorted, m)
 
