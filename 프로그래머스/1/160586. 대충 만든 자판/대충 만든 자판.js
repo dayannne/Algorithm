@@ -6,9 +6,9 @@ function solution(keymap, targets) {
     for(const target of targets){
         let count = 0
         for(const s of target){
-            // 해당 알파벳이 없는 문자열에는 가장 큰 수를 부여
-            const key = keymap.map(str => str.indexOf(s) > -1 ? str.indexOf(s) + 1 : 10000 )
-            if(!key.some(item => item <= 100)) {
+            // 해당 알파벳이 없는 문자열을 제외하고 걸러내기
+            const key = keymap.filter(str => str.indexOf(s) > -1).map(str => str.indexOf(s) + 1 )
+            if(!key.length) {
                 count = -1
                 break
             }
