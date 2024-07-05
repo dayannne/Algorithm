@@ -1,37 +1,20 @@
 function solution(elements) {
-    // set으로 합들을 담을 공간 만들기
-    const sums = new Set()
-    const N = elements.length   
-    let firstSum = 0
+    const n = elements.length;
+    const sum = new Array(2 * n).fill(0);
 
-    for(let i = 0 ; i < N ; i++){
-        firstSum += elements[i]
-        sums.add(firstSum)
+    // 원형 수열의 합 계산
+    for (let i = 0; i < 2 * n; i++) {
+        sum[i] = (sum[i - 1] || 0) + elements[i % n];
     }
-    
-    let total = elements[0] // 현재 길이의 초기 합
-    let sum = elements[0] // 현재 합
-    let length = 1
-    let start = 0
-    let end = 1
-    
-    while(length < N){
-        if(start === N) {
-            length++
-            total += elements[length-1]
-            sum = total
-            start = 0
-            end = length 
-            continue
+
+    // 연속 부분 수열의 합 계산
+    const result = new Set();
+    for (let i = 0; i < n; i++) {
+        for (let j = 1; j <= n; j++) {
+            result.add(sum[i + j] - sum[i]);
+  
         }
-        sum = sum - elements[start] + elements[end]
-        sums.add(sum)
- 
-        if(end === N - 1) end = 0
-        else end++
-        start++
- 
     }
 
-    return sums.size;
+    return result.size;
 }
