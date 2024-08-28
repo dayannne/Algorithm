@@ -1,12 +1,14 @@
 let fs = require('fs');
 let input = fs.readFileSync('/dev/stdin').toString().split('\n');
-let a = input[0];
-let b = input[1];
-x_1 = b[2]; // 일의 자리
-x_2 = b[1]; // 십의 자리
-x_3 = b[0]; // 백의 자리
-console.log(Number(a) * Number(x_1));
-console.log(Number(a) * Number(x_2));
-console.log(Number(a) * Number(x_3));
-console.log(Number(a) * Number(b));
 
+const a = parseInt(input[0]);
+const b = input[1];
+
+const b_1 = parseInt(b[2]);
+const b_2 = parseInt(b[1]);
+const b_3 = parseInt(b[0]);
+
+console.log(a * b_1);
+console.log(a * b_2);
+console.log(a * b_3);
+console.log(a * parseInt(b));
