@@ -5,14 +5,11 @@ const N = Number(input[0]);
 const distances = input[1].split(' ').map(Number);
 const prices = input[2].split(' ').map(Number);
 
-let i = 1;
 let minPrice = prices[0];
-let fee = prices[0] * distances[0];
+let fee = BigInt(0);
 
-while (i < distances.length) {
-  const curr = prices[i];
-  minPrice = Math.min(minPrice, curr);
-  fee += minPrice * distances[i];
-  i++;
+for (let i = 0; i < distances.length; i++) {
+  minPrice = Math.min(minPrice, prices[i]);
+  fee += BigInt(minPrice) * BigInt(distances[i]);
 }
-console.log(fee);
+console.log(fee.toString());
